@@ -1,283 +1,293 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:image" content="logo.jpg">
+  <meta property="og:url" content="https://daianehorbachdevciber.vercel.app/">
   <title>Daiane Horbach | Tecnologia com Segurança</title>
-  <meta name="description" content="Daiane Horbach - Desenvolvedora Back-end e entusiasta de cibersegurança." />
-  <!-- Fontes e ícones -->
+  <meta name="description" content="Portfólio de Daiane Horbach — Desenvolvedora Back-End Java e estudante de Cibersegurança pela Cisco.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    :root{
-      --bg: #131314;           /* fundo geral */
-      --panel: #1f1f27;        /* cards e seções */
+    :root {
+      --bg: #131314;
+      --panel: #1f1f27;
       --muted: #aeb3c2;
       --white: #f6f7fb;
-      --accent1: #45cddf;     
-      --accent2: #74397c;      
-      --glass: rgba(255,255,255,0.03);
+      --accent1: #9B59B6; /* Roxo da logo */
+      --accent2: #45cddf;
       --radius: 12px;
-      --maxw: 1100px;
-      --transition: 280ms cubic-bezier(.2,.9,.2,1);
+      --transition: 0.3s ease;
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial; background: radial-gradient(800px 400px at 10% 10%, rgba(139,92,246,0.04), transparent), radial-gradient(600px 300px at 90% 90%, rgba(32,198,194,0.03), transparent), var(--bg); color:var(--white); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
-    .wrap{max-width:var(--maxw);margin:28px auto;padding:24px;}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ---------- HEADER ---------- */
-    header{display:flex;align-items:center;gap:20px;padding:18px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter: blur(6px); position:sticky;top:12px;z-index:40;}
-    .brand{display:flex;gap:18px;align-items:center}
-    .logo-box{width:86px;height:86px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;padding:10px;box-shadow:0 8px 30px rgba(0,0,0,0.5)}
-    .logo-box img{max-width:100%;height:auto;display:block}
-    .title{line-height:1}
-    .title h1{font-size:18px;margin:0;color:var(--accent1)}
-    .title p{margin:2px 0 0;color:var(--muted);font-size:13px}
-    nav{margin-left:auto}
-    .nav{display:flex;gap:10px;align-items:center}
-    .nav a{color:var(--muted);text-decoration:none;padding:10px 12px;border-radius:10px;font-weight:600;font-size:13px;transition:all var(--transition)}
-    .nav a:hover{color:var(--white);background:rgba(255,255,255,0.02);transform:translateY(-2px)}
-
-/* ---------- HERO / SOBRE ---------- */
-    .hero{display:grid;grid-template-columns:320px 1fr;gap:28px;margin-top:18px;align-items:center}
-    .photo-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:16px;display:flex;align-items:center;justify-content:center;min-height:320px;box-shadow:0 8px 30px rgba(0,0,0,0.45)}
-    .photo{width:260px;height:260px;border-radius:20px;overflow:hidden;display:block}
-    .photo img{width:100%;height:100%;object-fit:cover;display:block}
-    .about{padding:18px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));}
-    .about h2{color:var(--accent1);margin:0 0 8px}
-    .about p{color:var(--muted);margin:0 0 18px}
-    .cta-row{display:flex;gap:12px;align-items:center}
-    .btn{
-      display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff;text-decoration:none;font-weight:600;box-shadow:0 10px 30px rgba(139,92,246,0.12);transition:transform var(--transition), box-shadow var(--transition)
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+      padding: 0 1rem;
     }
-    .btn:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(32,198,194,0.12)}
-    .btn-ghost{padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);color:var(--muted);text-decoration:none;font-weight:600;transition:all var(--transition)}
-    .btn-ghost:hover{background:rgba(255,255,255,0.02);color:var(--white);transform:translateY(-2px)}
 
-/* ---------- SECTIONS ---------- */
-    section{margin-top:40px}
-    .section-head{display:flex;align-items:end;justify-content:center;gap:12px}
-    .section-head h3{margin:0;color:var(--accent1);font-size:18px}
-    .section-sub{color:var(--muted);text-align:center;margin-top:8px;font-size:14px}
+    .wrap { max-width: 1100px; margin: auto; padding: 1rem; }
 
-/* grid cards */
-    .grid{display:grid;gap:18px;margin-top:18px}
-    .services-grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-    .card{
-      background:var(--panel);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.02);
-      box-shadow:0 8px 22px rgba(0,0,0,0.45);transition:transform var(--transition), box-shadow var(--transition), opacity var(--transition);
-      opacity:0;transform:translateY(10px);
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
     }
-    .card.visible{opacity:1;transform:none}
-    .card h4{margin:0 0 8px;color:var(--accent2)}
-    .card p{margin:0;color:var(--muted);font-size:14px}
-    .card .icon{font-size:20px;color:var(--accent1);margin-right:10px;vertical-align:middle}
 
-/* ---------- PROJETOS ---------- */
-    .projects-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    .project-thumb{height:140px;border-radius:10px;background:linear-gradient(135deg, rgba(139,92,246,0.08), rgba(32,198,194,0.05));display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);font-weight:600}
+    .brand { display: flex; align-items: center; gap: 1rem; }
+    .brand img { width: 70px; height: 70px; border-radius: 12px; }
+    .brand h1 { color: var(--accent1); font-size: 1.2rem; margin: 0; }
+    .brand p { color: var(--muted); font-size: 0.85rem; margin: 0; }
 
-/* ---------- QUALIFICAÇÕES E CERTIFICAÇÕES ---------- */
-    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;justify-content:center}
-    .chip{
-      display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));border:1px solid rgba(255,255,255,0.03);color:var(--muted)
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 600;
+      transition: color var(--transition);
     }
-    .chip .fa{color:var(--accent1)}
 
-/* ---------- CONTATO / REDES ---------- */
-    .socials{display:flex;gap:12px;justify-content:center;margin-top:12px}
-    .social{
-      display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);border:1px solid rgba(255,255,255,0.03);color:var(--muted);text-decoration:none;transition:all var(--transition)
+    nav a:hover { color: var(--white); }
+
+    section { margin: 2rem 0; }
+
+    h2 { color: var(--accent1); margin-bottom: 0.5rem; }
+    p { color: var(--muted); }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 2rem;
     }
-    .social .fa{width:18px;height:18px}
-    .social:hover{color:var(--white);transform:translateY(-4px)}
 
-/* ---------- RODAPÉ ---------- */
-    footer{margin-top:40px;padding:26px;text-align:center;color:var(--muted);font-size:13px}
-
-/* ---------- ANIMAÇÕES E RESPONSIVIDADE ---------- */
-    .fade-up{opacity:0;transform:translateY(12px);transition:opacity 520ms ease, transform 520ms ease}
-    .fade-up.show{opacity:1;transform:none}
-    @media(max-width:980px){
-      .hero{grid-template-columns:1fr;gap:18px}
-      .photo{width:220px;height:220px}
-      .logo-box{width:72px;height:72px}
-      nav{display:none}
+    .hero img {
+      width: 100%;
+      max-width: 280px;
+      border-radius: var(--radius);
+      display: block;
+      margin: auto;
     }
-    @media(max-width:480px){
-      .photo{width:180px;height:180px}
-      .about p{font-size:14px}
-      .btn{padding:10px}
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      margin-top: 1rem;
+      font-weight: 600;
+      transition: transform var(--transition);
+    }
+
+    .btn:hover { transform: scale(1.05); }
+
+    /* Projetos */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 1rem;
+      transition: transform var(--transition);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .card:hover { transform: translateY(-5px); }
+
+    .card h4 { color: var(--accent2); margin-bottom: 0.5rem; }
+    .card p { font-size: 0.9rem; }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+      justify-content: center;
+    }
+
+    .chip {
+      background: var(--panel);
+      padding: 0.5rem 0.8rem;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .chip i { color: var(--accent1); }
+
+    .socials {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .social {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted);
+      text-decoration: none;
+      background: var(--panel);
+      padding: 0.6rem 1rem;
+      border-radius: var(--radius);
+      transition: all var(--transition);
+    }
+
+    .social:hover { color: var(--white); transform: translateY(-3px); }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin: 2rem 0 1rem;
+    }
+
+    @media(max-width: 800px) {
+      .hero { grid-template-columns: 1fr; text-align: center; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <!-- HEADER -->
     <header>
       <div class="brand">
-        <div class="logo-box" aria-hidden>
-          <!-- Substitua assets/logo.png pela sua logo real -->
-          <img src="logo.png" alt="Logo Daiane Horbach">
-        </div>
-        <div class="title">
+        <img src="logo.png" alt="Logo Daiane Horbach" />
+        <div>
           <h1>Daiane Horbach</h1>
           <p>Tecnologia com Segurança</p>
         </div>
       </div>
-
       <nav>
-        <div class="nav" role="navigation" aria-label="Menu principal">
-          <a href="#sobre">Sobre</a>
-         <a href="#projetos">Projetos</a>
-          <a href="#qualificacoes">Qualificações</a>
-          <a href="#contato">Contato</a>
-        </div>
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#certificacoes">Certificações</a>
+        <a href="#contato">Contato</a>
       </nav>
     </header>
 
-    <!-- HERO / SOBRE -->
-    <section id="sobre" class="hero" aria-labelledby="sobre-title">
-      <div class="photo-card fade-up">
-        <!-- Foto da Daiane (substitua assets/foto-daiane.png) -->
-        <figure class="photo" role="img" aria-label="Foto de Daiane">
-          <img src="foto daiane.jpg" alt="Daiane Horbach">
-        </figure>
-      </div>
+    <p align="center">
+      <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&duration=3500&pause=800&color=9B59B6&center=true&vCenter=true&width=550&lines=💻+Desenvolvedora+Back-End+Java;🔐+Estudante+de+Cibersegurança+pela+Cisco;🚀+Apaixonada+por+Tecnologia;☕+Sempre+em+Aprendizado+Contínuo!" alt="Typing SVG">
+    </p>
 
-      <div class="about fade-up">
-        <h2 id="sobre-title">Sobre Mim</h2>
-        <p>
-Sou desenvolvedora back-end com foco em Java e experiência em criação de APIs REST utilizando Spring Boot, JPA e boas práticas de desenvolvimento.
-Participei do programa Oracle Next Education (ONE), em parceria com a Alura, onde desenvolvi projetos práticos aplicando conceitos de orientação a objetos, integração de sistemas e documentação de APIs.
-
-Atualmente, estou ampliando meus conhecimentos na área de Cibersegurança, por meio do programa Cisco Networking Academy e JA Brasil, com foco em segurança de redes, análise de vulnerabilidades e boas práticas de proteção de dados.
-
-Sou apaixonada por tecnologia e inovação, buscando constantemente aprender e aplicar novas soluções que unam desenvolvimento seguro e eficiência.        </p>
-
-        <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;">
-          <a class="btn" href="Currículo Daiane Moreira Horbach.pdf" download>
-            <i class="fa fa-download" aria-hidden></i>
-            Baixar Currículo (PDF)
-          </a>
-          <a class="btn-ghost" href="#contato">Falar comigo</a>
-        </div>
+    <section id="sobre" class="hero">
+      <img src="foto daiane.jpg" alt="Daiane Horbach">
+      <div>
+        <h2>Sobre Mim</h2>
+        <p>Sou desenvolvedora back-end com foco em Java e experiência na criação de APIs REST com Spring Boot, JPA e boas práticas de desenvolvimento. Formada pelo programa Oracle Next Education (Alura + Oracle) e em formação pela Cisco Networking Academy, busco unir tecnologia e segurança digital em soluções eficientes e éticas.</p>
+        <a href="Currículo Daiane Moreira Horbach.pdf" class="btn" download><i class="fa fa-download"></i> Baixar Currículo</a>
       </div>
     </section>
 
-    <!-- PROJETOS -->
-    <section id="projetos" aria-labelledby="projetos-title">
-      <div class="section-head">
-        <h3 id="projetos-title">Projetos</h3>
+    <section id="projetos">
+      <h2>Projetos</h2>
+      <div class="projects-grid">
+        <div class="card">
+          <h4>🔐 Verificador de Senhas Seguras</h4>
+          <p>Ferramenta em Python que analisa a força de senhas e dá dicas de segurança.</p>
+          <a class="btn" href="https://github.com/daianemh/senha_segura.py" target="_blank"><i class="fa fa-github"></i> Ver no GitHub</a>
+        </div>
+
+        <div class="card">
+          <h4>📋 Sistema de Gerenciamento de Tarefas</h4>
+          <p>Aplicação Java Spring Boot com CRUD e banco H2 para controle de tarefas.</p>
+          <a class="btn" href="https://github.com/daianemh/sistema-simples-de-gerenciamento-de-tarefas" target="_blank"><i class="fa fa-github"></i> Ver no GitHub</a>
+        </div>
+
+        <div class="card">
+          <h4>🐾 Sistema de Clínica Veterinária</h4>
+          <p>Front-end em HTML, CSS e JS focado em design e experiência do usuário.</p>
+          <a class="btn" href="https://github.com/daianemh/clinicaveterinariafront" target="_blank"><i class="fa fa-github"></i> Ver no GitHub</a>
+        </div>
       </div>
-      <p class="section-sub">Alguns dos meus projetos de aprendizagem </p>
 
-      <div class="grid projects-grid">
-        <div class="card fade-up">
-          <h4 style="margin-top:12px">Verificador de Senhas Seguras</h4>
-          <p>Este projeto é uma ferramenta para verificar a segurança de senhas, utilizando boas práticas de segurança da informação.</p>
-          <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;">
-            <a class="btn" href="https://github.com/daianemh/senha_segura.py" target="_blank" rel="noopener">
-              <i class="fa fa-github" aria-hidden></i>
-              projeto no github
-            </a>
-          </div>
-        </div>
-
-        <div class="card fade-up">
-          <h4 style="margin-top:12px">Sistema Simples de Gerenciamento de Tarefas</h4>
-          <p>Sistema de gestão de tarefas com funcionalidades básicas de CRUD, desenvolvido com foco em simplicidade e usabilidade.</p>
-          <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;">
-            <a class="btn" href="https://github.com/daianemh/clinicaveterinariafront" target="_blank" rel="noopener">
-              <i class="fa fa-github" aria-hidden></i>
-              projeto no github
-            </a>
-          </div>
-        </div>
-
-        <div class="card fade-up">
-          <h4 style="margin-top:12px">Sistema de Gestão para Clínica Veterinária</h4>
-          <p>Este projeto é um sistema web completo para gerenciamento de clínica veterinária, desenvolvido com foco em simplicidade, usabilidade e funcionalidades essenciais para o dia a dia da clínica.</p>
-          <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;">
-            <a class="btn" href="https://github.com/daianemh/sistema-simples-de-gerenciamento-de-tarefas" target="_blank" rel="noopener">
-              <i class="fa fa-github" aria-hidden></i>
-              projeto no github
-            </a>
-          </div>
-        </div>
+      <div style="text-align:center; margin-top:1rem;">
+        <a class="btn" href="https://github.com/daianemh" target="_blank">Ver mais no GitHub</a>
       </div>
     </section>
 
-    <!-- QUALIFICAÇÕES E CERTIFICAÇÕES -->
-    <section id="qualificacoes" aria-labelledby="qualificacoes-title">
-      <div class="section-head">
-        <h3 id="qualificacoes-title">Qualificações & Certificações</h3>
-      </div>
-      <p class="section-sub">algumas das minhas formações e cursos que reforçam minha atuação em desenvolvimento e segurança.</p>
+ <!-- QUALIFICAÇÕES E CERTIFICAÇÕES -->
+<section id="qualificacoes" aria-labelledby="qualificacoes-title">
+  <div class="section-head">
+    <h3 id="qualificacoes-title">Qualificações & Certificações</h3>
+  </div>
+  <p class="section-sub">Minhas formações e certificações em desenvolvimento back-end, cibersegurança e tecnologia.</p>
 
-      <div class="chips">
-        <div class="chip"><i class="fa fa-java"></i> Network Defense - Cisco</div>
-        <div class="chip"><i class="fa fa-database"></i> Endpoint Security - Cisco</div>
-        <div class="chip"><i class="fa fa-network-wired"></i> Networking Devices and Initial Configuration - Cisco</div>
-        <div class="chip"><i class="fa fa-shield-alt"></i> Networking Basics - Cisco</div>
-        <div class="chip"><i class="fa fa-laptop-code"></i> Introduction to Cybersecurity - Cisco</div>
-        <div class="chip"><i class="fa fa-award"></i> back-end Java - Oracle One Next / Alura </div>
-      </div>
-    </section>
+  <div class="chips">
 
-    <!-- CONTATO -->
-    <section id="contato" aria-labelledby="contato-title">
-      <div class="section-head">
-        <h3 id="contato-title">Contato</h3>
-      </div>
-      <p class="section-sub">Vamos conversar? Me encontre nas redes ou pelo WhatsApp.</p>
+    <!-- 🌐 Cibersegurança -->
+    <div class="chip"><i class="fa fa-shield-alt"></i> Network Defense - Cisco</div>
+    <div class="chip"><i class="fa fa-network-wired"></i> Network Addressing & Troubleshooting - Cisco</div>
+    <div class="chip"><i class="fa fa-desktop"></i> Endpoint Security - Cisco</div>
+    <div class="chip"><i class="fa fa-lock"></i> Cyber Threat Management - Cisco</div>
+    <div class="chip"><i class="fa fa-bug"></i> Introduction to Cybersecurity - Cisco</div>
 
-      <div class="socials">
-        <a class="social" href="https://wa.me/5566999196565" target="_blank" rel="noopener"><i class="fa fa-whatsapp"></i> WhatsApp</a>
-        <a class="social" href="https://linkedin.com/in/daiane-moreira-horbach" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i> LinkedIn</a>
-        <a class="social" href="https://github.com/daianemh" target="_blank" rel="noopener"><i class="fa fa-github"></i> GitHub</a>
-        <a class="social" href="https://instagram.com/daiane.horbachdev" target="_blank" rel="noopener"><i class="fa fa-instagram"></i> Instagram</a>
-        <a class="social" href="mailto:daiane.horbachdev@gmail.com" target="_blank" rel="noopener"><i class="fa fa-envelope"></i> Email</a>
-      </div>
+    <!-- ☕ Desenvolvimento Back-End -->
+    <div class="chip"><i class="fa fa-java"></i> Programa Oracle Next Education (Back-End Java)</div>
+    <div class="chip"><i class="fa fa-code"></i> Spring Boot 3: APIs REST, JPA e Deploy - Alura</div>
 
-    </section>
+    <!-- 💼 Habilidades Profissionais -->
+    <div class="chip"><i class="fa fa-people-carry"></i> Gestão de Pessoas - Sebrae</div>
+    <div class="chip"><i class="fa fa-scroll"></i> LGPD - Fundação Bradesco</div>
+    <div class="chip"><i class="fa fa-lightbulb"></i> Empreendedorismo e Inovação - Fundação Bradesco</div>
+    <div class="chip"><i class="fa fa-handshake"></i> Desenvolvimento Pessoal e Liderança - Alura</div>
+
+  </div>
+<section id="contato" aria-labelledby="contato-title">
+  <div class="section-head">
+    <h3 id="contato-title">Contato</h3>
+  </div>
+  <p class="section-sub">Vamos conversar? Me encontre nas redes ou pelo WhatsApp.</p>
+
+  <div class="socials">
+    <a class="social" href="https://wa.me/5566999196565" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" width="20" height="20" style="filter: invert(80%) sepia(10%) saturate(300%) hue-rotate(220deg);">
+      WhatsApp
+    </a>
+    <a class="social" href="https://linkedin.com/in/daiane-moreira-horbach" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="20" height="20" style="filter: invert(80%) sepia(10%) saturate(300%) hue-rotate(220deg);">
+      LinkedIn
+    </a>
+    <a class="social" href="https://github.com/daianemh" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" width="20" height="20" style="filter: invert(80%) sepia(10%) saturate(300%) hue-rotate(220deg);">
+      GitHub
+    </a>
+    <a class="social" href="https://instagram.com/daiane.horbachdev" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="20" height="20" style="filter: invert(80%) sepia(10%) saturate(300%) hue-rotate(220deg);">
+      Instagram
+    </a>
+    <a class="social" href="mailto:daiane.horbachdev@gmail.com" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email" width="20" height="20" style="filter: invert(80%) sepia(10%) saturate(300%) hue-rotate(220deg);">
+      Email
+    </a>
+  </div>
+</section>
 
     <footer>
-      © <span id="year"></span> Daiane Horbach · Tecnologia com Segurança
+      Feito com 💜 por <b>Daiane Horbach</b> | © 2025 — Tecnologia com Segurança
     </footer>
   </div>
-
-  <!-- SCRIPTS: interatividade e animações -->
-  <script>
-    // Ano no rodapé
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', function(e){
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
-      });
-    });
-
-    // IntersectionObserver para animações (fade-up e cards)
-    const observerOpts = {threshold:0.12};
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add('show');
-          entry.target.classList.add('visible'); // cards
-        }
-      });
-    }, observerOpts);
-
-    // elements to observe
-    document.querySelectorAll('.fade-up, .card').forEach(el=>{
-      io.observe(el);
-    });
-
-  </script>
 </body>
 </html>
+
