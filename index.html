@@ -5,17 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta property="og:image" content="logo.jpg">
   <meta property="og:url" content="https://daianehorbachdevciber.vercel.app/">
-  <title>Daiane Horbach | Tecnologia com Segurança</title>
-  <meta name="description" content="Portfólio de Daiane Horbach — Desenvolvedora Back-End Java e estudante de Cibersegurança pela Cisco.">
+  <title>Daiane Horbach | Back-end Java | Cibersegurança & Redes</title>
+  <meta name="description" content="Portfólio de Daiane Horbach — Back-end Java com base em Cibersegurança e Redes. Certificada CCST pela Cisco Networking Academy.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     :root {
       --bg: #131314;
       --panel: #1f1f27;
       --muted: #aeb3c2;
       --white: #f6f7fb;
-      --accent1: #9B59B6; /* Roxo da logo */
+      --accent1: #9B59B6;
       --accent2: #45cddf;
       --radius: 12px;
       --transition: 0.3s ease;
@@ -60,10 +61,9 @@
 
     section { margin: 2rem 0; }
 
-    h2 { color: var(--accent1); margin-bottom: 0.5rem; }
+    h2, h3 { color: var(--accent1); margin-bottom: 0.5rem; }
     p { color: var(--muted); }
 
-    /* Hero */
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -93,7 +93,6 @@
 
     .btn:hover { transform: scale(1.05); }
 
-    /* Projetos */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -169,8 +168,10 @@
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
+
     <header>
       <div class="brand">
         <img src="logo.png" alt="Logo Daiane Horbach" />
@@ -182,43 +183,57 @@
       <nav>
         <a href="#sobre">Sobre</a>
         <a href="#projetos">Projetos</a>
-        <a href="#certificacoes">Certificações</a>
+        <a href="#qualificacoes">Certificações</a>
         <a href="#contato">Contato</a>
       </nav>
     </header>
 
     <p align="center">
-      <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&duration=3500&pause=800&color=9B59B6&center=true&vCenter=true&width=550&lines=💻+Desenvolvedora+Back-End+Java;🔐+Estudante+de+Cibersegurança+pela+Cisco;🚀+Apaixonada+por+Tecnologia;☕+Sempre+em+Aprendizado+Contínuo!" alt="Typing SVG">
+      <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&duration=3500&pause=800&color=9B59B6&center=true&vCenter=true&width=550&lines=💻+Back-end+Java;🔐+Cibersegurança+e+Redes+%7C+CCST+Cisco;🚀+Tecnologia+com+Segurança;🧠+Aprendizado+Contínuo" alt="Typing SVG">
     </p>
 
     <section id="sobre" class="hero">
       <img src="foto daiane.jpg" alt="Daiane Horbach">
       <div>
         <h2>Sobre Mim</h2>
-        <p>Sou desenvolvedora back-end com foco em Java e experiência na criação de APIs REST com Spring Boot, JPA e boas práticas de desenvolvimento. Formada pelo programa Oracle Next Education (Alura + Oracle) e em formação pela Cisco Networking Academy, busco unir tecnologia e segurança digital em soluções eficientes e éticas.</p>
-        <a href="Currículo Daiane Moreira Horbach.pdf" class="btn" download><i class="fa fa-download"></i> Baixar Currículo</a>
+        <p>
+          Profissional em formação com base em desenvolvimento Back-end Java e foco em Cibersegurança e Redes.
+          Possuo certificações CCST pela Cisco Networking Academy e formação pelo programa Oracle Next Education.
+          Atuo em projetos práticos utilizando Java, Spring Boot, APIs REST, JPA e bancos de dados relacionais,
+          aplicando boas práticas, lógica de programação e fundamentos de segurança da informação.
+        </p>
+        <a href="Currículo Daiane Moreira Horbach.pdf" class="btn" download>
+          <i class="fa fa-download"></i> Baixar Currículo
+        </a>
       </div>
     </section>
 
     <section id="projetos">
       <h2>Projetos</h2>
+
       <div class="projects-grid">
         <div class="card">
           <h4>🔐 Verificador de Senhas Seguras</h4>
-          <p>Ferramenta em Python que analisa a força de senhas e dá dicas de segurança.</p>
-          <a class="btn" href="https://github.com/daianemh/senha_segura.py" target="_blank"><i class="fa fa-github"></i> Ver no GitHub</a>
+          <p>Ferramenta em Python para análise de força de senhas, aplicando conceitos básicos de segurança da informação.</p>
+          <a class="btn" href="https://github.com/daianemh/senha_segura.py" target="_blank">
+            <i class="fa fa-github"></i> Ver no GitHub
+          </a>
         </div>
 
         <div class="card">
           <h4>📋 Sistema de Gerenciamento de Tarefas</h4>
-          <p>Aplicação Java Spring Boot com CRUD e banco H2 para controle de tarefas.</p>
-          <a class="btn" href="https://github.com/daianemh/sistema-simples-de-gerenciamento-de-tarefas" target="_blank"><i class="fa fa-github"></i> Ver no GitHub</a>
+          <p>Aplicação Back-end em Java com Spring Boot, CRUD e banco H2, estruturada em camadas.</p>
+          <a class="btn" href="https://github.com/daianemh/sistema-simples-de-gerenciamento-de-tarefas" target="_blank">
+            <i class="fa fa-github"></i> Ver no GitHub
+          </a>
         </div>
 
         <div class="card">
           <h4>🐾 Sistema de Clínica Veterinária</h4>
-          <p>Front-end em HTML, CSS e JS focado em design e experiência do usuário.</p>
-          <a class="btn" href="https://github.com/daianemh/clinicaveterinariafront" target="_blank"><i class="fa fa-github"></i> Ver no GitHub</a>
+          <p>Front-end em HTML, CSS e JavaScript com foco em experiência do usuário e organização visual.</p>
+          <a class="btn" href="https://github.com/daianemh/clinicaveterinariafront" target="_blank">
+            <i class="fa fa-github"></i> Ver no GitHub
+          </a>
         </div>
       </div>
 
@@ -227,67 +242,39 @@
       </div>
     </section>
 
- <!-- QUALIFICAÇÕES E CERTIFICAÇÕES -->
-<section id="qualificacoes" aria-labelledby="qualificacoes-title">
-  <div class="section-head">
-    <h3 id="qualificacoes-title">Qualificações & Certificações</h3>
-  </div>
-  <p class="section-sub">Minhas formações e certificações em desenvolvimento back-end, cibersegurança e tecnologia.</p>
+    <section id="qualificacoes">
+      <h3>Qualificações & Certificações</h3>
 
-  <div class="chips">
+      <div class="chips">
+        <div class="chip"><i class="fa fa-certificate"></i> CCST Cybersecurity — Cisco</div>
+        <div class="chip"><i class="fa fa-certificate"></i> CCST Networking — Cisco</div>
 
-    <!-- 🌐 Cibersegurança -->
-    <div class="chip"><i class="fa fa-shield-alt"></i> Network Defense - Cisco</div>
-    <div class="chip"><i class="fa fa-network-wired"></i> Network Addressing & Troubleshooting - Cisco</div>
-    <div class="chip"><i class="fa fa-desktop"></i> Endpoint Security - Cisco</div>
-    <div class="chip"><i class="fa fa-lock"></i> Cyber Threat Management - Cisco</div>
-    <div class="chip"><i class="fa fa-bug"></i> Introduction to Cybersecurity - Cisco</div>
+        <div class="chip"><i class="fa fa-java"></i> Oracle Next Education — Back-end Java</div>
+        <div class="chip"><i class="fa fa-code"></i> Spring Boot, APIs REST e JPA</div>
 
-    <!-- ☕ Desenvolvimento Back-End -->
-    <div class="chip"><i class="fa fa-java"></i> Programa Oracle Next Education (Back-End Java)</div>
-    <div class="chip"><i class="fa fa-code"></i> Spring Boot 3: APIs REST, JPA e Deploy - Alura</div>
+        <div class="chip"><i class="fa fa-shield-alt"></i> Network Defense — Cisco</div>
+        <div class="chip"><i class="fa fa-network-wired"></i> Endpoint Security — Cisco</div>
+        <div class="chip"><i class="fa fa-lock"></i> Cyber Threat Management — Cisco</div>
+        <div class="chip"><i class="fa fa-scroll"></i> LGPD — Fundação Bradesco</div>
+      </div>
+    </section>
 
-    <!-- 💼 Habilidades Profissionais -->
-    <div class="chip"><i class="fa fa-people-carry"></i> Gestão de Pessoas - Sebrae</div>
-    <div class="chip"><i class="fa fa-scroll"></i> LGPD - Fundação Bradesco</div>
-    <div class="chip"><i class="fa fa-lightbulb"></i> Empreendedorismo e Inovação - Fundação Bradesco</div>
-    <div class="chip"><i class="fa fa-handshake"></i> Desenvolvimento Pessoal e Liderança - Alura</div>
+    <section id="contato">
+      <h3>Contato</h3>
 
-  </div>
-<section id="contato" aria-labelledby="contato-title">
-  <div class="section-head">
-    <h3 id="contato-title">Contato</h3>
-  </div>
-  <p class="section-sub">Vamos conversar? Me encontre nas redes ou pelo WhatsApp.</p>
-
-  <div class="socials">
-    <a class="social" href="https://wa.me/5566999196565" target="_blank" rel="noopener">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" width="20" height="20" style="filter: invert(80%) sepia(10%) saturate(300%) hue-rotate(220deg);">
-      WhatsApp
-    </a>
-    <a class="social" href="https://linkedin.com/in/daiane-moreira-horbach" target="_blank" rel="noopener">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="20" height="20" style="filter: invert(80%) sepia(10%) saturate(300%) hue-rotate(220deg);">
-      LinkedIn
-    </a>
-    <a class="social" href="https://github.com/daianemh" target="_blank" rel="noopener">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" width="20" height="20" style="filter: invert(80%) sepia(10%) saturate(300%) hue-rotate(220deg);">
-      GitHub
-    </a>
-    <a class="social" href="https://instagram.com/daiane.horbachdev" target="_blank" rel="noopener">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="20" height="20" style="filter: invert(80%) sepia(10%) saturate(300%) hue-rotate(220deg);">
-      Instagram
-    </a>
-    <a class="social" href="mailto:daiane.horbachdev@gmail.com" target="_blank" rel="noopener">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email" width="20" height="20" style="filter: invert(80%) sepia(10%) saturate(300%) hue-rotate(220deg);">
-      Email
-    </a>
-  </div>
-</section>
+      <div class="socials">
+        <a class="social" href="https://wa.me/5566999196565" target="_blank">WhatsApp</a>
+        <a class="social" href="https://linkedin.com/in/daiane-moreira-horbach" target="_blank">LinkedIn</a>
+        <a class="social" href="https://github.com/daianemh" target="_blank">GitHub</a>
+        <a class="social" href="https://instagram.com/daiane.horbachdev" target="_blank">Instagram</a>
+        <a class="social" href="mailto:daiane.horbachdev@gmail.com">Email</a>
+      </div>
+    </section>
 
     <footer>
       Feito com 💜 por <b>Daiane Horbach</b> | © 2025 — Tecnologia com Segurança
     </footer>
+
   </div>
 </body>
 </html>
-
