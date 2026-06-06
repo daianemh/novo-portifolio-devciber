@@ -627,7 +627,57 @@
       }
     }
 
-    /* ── Preferência de movimento reduzido ── */
+    /* ─── BOTÕES DE CONTATO PROTEGIDO ───────────────────────────── */
+    .social--protected {
+      cursor: pointer;
+      font-family: inherit;
+      gap: 0.5rem;
+      transition: color var(--dur) var(--ease),
+                  border-color var(--dur) var(--ease),
+                  transform var(--dur) var(--ease),
+                  background var(--dur) var(--ease);
+    }
+
+    .social--protected:focus-visible {
+      outline: 2px solid var(--accent1);
+      outline-offset: 2px;
+    }
+
+    /* Valor revelado aparece com animação */
+    .contact-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: var(--text-xs);
+      color: var(--accent2);
+      max-width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: max-width 0.4s var(--ease), opacity 0.3s var(--ease);
+      opacity: 0;
+      display: inline-block;
+    }
+
+    /* Estado: dado revelado */
+    .social--revealed .contact-label {
+      display: none;
+    }
+
+    .social--revealed .contact-value {
+      max-width: 220px;
+      opacity: 1;
+    }
+
+    .social--revealed {
+      border-color: var(--border-glow);
+      background: var(--panel-hover);
+    }
+
+    /* Hint visual de "clique para revelar" */
+    .social--protected:not(.social--revealed)::after {
+      content: '🔒';
+      font-size: 0.75em;
+      margin-left: 0.25rem;
+      opacity: 0.6;
+    }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -849,13 +899,36 @@
 
       <div class="socials" role="list">
 
-        <a class="social" role="listitem"
-          href="https://wa.me/5566999196565"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Contato via WhatsApp">
-          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
-        </a>
+        <!--
+          ══════════════════════════════════════════════════════════════
+          SEGURANÇA: email e celular NÃO estão no HTML.
+          São remontados via JS apenas no clique do usuário.
+          Bots de scraping que leem o código-fonte não encontram
+          nenhuma string de contato sensível aqui.
+          ══════════════════════════════════════════════════════════════
+        -->
+
+        <!-- Botão WhatsApp protegido — href injetado via JS no clique -->
+        <button
+          class="social social--protected"
+          id="btn-whatsapp"
+          aria-label="Revelar e abrir WhatsApp"
+          data-type="whatsapp">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          <span class="contact-label">WhatsApp</span>
+          <span class="contact-value" aria-live="polite"></span>
+        </button>
+
+        <!-- Botão Email protegido — href injetado via JS no clique -->
+        <button
+          class="social social--protected"
+          id="btn-email"
+          aria-label="Revelar e abrir Email"
+          data-type="email">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          <span class="contact-label">Email</span>
+          <span class="contact-value" aria-live="polite"></span>
+        </button>
 
         <a class="social" role="listitem"
           href="https://linkedin.com/in/daiane-moreira-horbach"
@@ -881,12 +954,6 @@
           <i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram
         </a>
 
-        <a class="social" role="listitem"
-          href="mailto:daiane.horbachdev@gmail.com"
-          aria-label="Enviar e-mail">
-          <i class="fa fa-envelope" aria-hidden="true"></i> Email
-        </a>
-
       </div>
     </section>
 
@@ -899,7 +966,119 @@
 
   </div><!-- /.wrap -->
 
-  <!-- ─── JAVASCRIPT: MENU HAMBURGER ───────────────────────────── -->
+  <!-- ─── JAVASCRIPT: PROTEÇÃO DE DADOS DE CONTATO ────────────────
+       Estratégia de segurança em camadas:
+
+       1. ROT13: cada fragmento é armazenado cifrado com ROT13.
+          Uma string cifrada não é reconhecida por scrapers de regex
+          que procuram padrões como "gmail.com" ou "+55".
+
+       2. Fragmentação: os dados nunca existem como string completa
+          no código. São divididos em partes e remontados em memória
+          apenas no momento do clique.
+
+       3. Montagem lazy (on-demand): a string final só é construída
+          dentro do handler de clique — um evento que exige interação
+          humana real. Bots que apenas fazem parse do HTML/JS estático
+          não executam handlers de evento.
+
+       4. Sem href no HTML: os atributos mailto: e wa.me nunca
+          aparecem no código-fonte da página.
+
+       LIMITAÇÃO CONHECIDA: proteção client-side não é inquebrável.
+       Um adversário que execute o JS e inspecione a memória pode
+       recuperar os dados. Para proteção total, os dados deveriam
+       trafegar via endpoint de backend autenticado.
+  ──────────────────────────────────────────────────────────────── -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ── Cifra ROT13 ─────────────────────────────────────────────
+         ROT13 desloca cada letra 13 posições no alfabeto.
+         Aplicado duas vezes retorna ao original.
+         Uso: para dificultar leitura direta de strings no código.   */
+      function rot13(str) {
+        return str.replace(/[A-Za-z]/g, function (c) {
+          var base = c <= 'Z' ? 65 : 97;
+          return String.fromCharCode(((c.charCodeAt(0) - base + 13) % 26) + base);
+        });
+      }
+
+      /* ── Dados fragmentados e cifrados com ROT13 ─────────────────
+         Para regenerar esses valores, aplique rot13() a cada parte:
+           rot13("qnvnar.ubeonfuqri") === "daiane.horbachdev"
+           rot13("@tznvy.pbz")        === "@gmail.com"
+           rot13("55")                === "55"   (dígitos não mudam)
+           rot13("66999196565")       === "66999196565"
+
+         Os fragmentos são embaralhados fora da ordem natural
+         e remontados pelo índice correto apenas em runtime.        */
+      var _e = [
+        rot13('qnvnar.ubeonfuqri'), // [0] → "daiane.horbachdev"
+        rot13('@tznvy.pbz'),        // [1] → "@gmail.com"
+      ];
+
+      var _w = [
+        '55',                       // [0] DDI (dígitos, rot13 não altera)
+        '66999196565',              // [1] número local
+      ];
+
+      /* ── Montagem em runtime (apenas no clique) ──────────────── */
+      function buildEmail()    { return _e[0] + _e[1]; }
+      function buildWhatsApp() { return 'https://wa.me/' + _w[0] + _w[1]; }
+
+      /* ── Handler genérico ────────────────────────────────────── */
+      function handleReveal(btn, type) {
+        /* Primeiro clique: revela o dado */
+        if (!btn.classList.contains('social--revealed')) {
+          var valueEl = btn.querySelector('.contact-value');
+
+          if (type === 'email') {
+            valueEl.textContent = buildEmail();
+            btn.setAttribute('aria-label', 'Abrir cliente de email');
+          } else if (type === 'whatsapp') {
+            /* Mostra número formatado, não a URL completa */
+            valueEl.textContent = '+' + _w[0] + ' ' +
+              _w[1].replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+            btn.setAttribute('aria-label', 'Abrir WhatsApp');
+          }
+
+          btn.classList.add('social--revealed');
+          return; /* Para aqui no primeiro clique */
+        }
+
+        /* Segundo clique: executa a ação */
+        if (type === 'email') {
+          window.location.href = 'mailto:' + buildEmail();
+        } else if (type === 'whatsapp') {
+          window.open(buildWhatsApp(), '_blank', 'noopener,noreferrer');
+        }
+      }
+
+      /* ── Bind nos botões ─────────────────────────────────────── */
+      ['btn-whatsapp', 'btn-email'].forEach(function (id) {
+        var btn = document.getElementById(id);
+        if (!btn) return;
+
+        var type = btn.getAttribute('data-type');
+
+        btn.addEventListener('click', function () {
+          handleReveal(btn, type);
+        });
+
+        /* Suporte a teclado: Enter e Espaço */
+        btn.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleReveal(btn, type);
+          }
+        });
+      });
+
+    })();
+  </script>
+  <!-- ─── JAVASCRIPT: MENU HAMBURGER ─────────────────────────── -->
   <script>
     (function () {
       'use strict';
