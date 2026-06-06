@@ -1,62 +1,105 @@
-# 🌐 Portfólio | Daiane Moreira Horbach
+# 🛡️ Portfólio — Daiane Horbach
 
-Bem-vindo(a) ao meu portfólio profissional!  
-Desenvolvido para apresentar meus **projetos, certificações e trajetória** nas áreas de **Desenvolvimento Back-End Java** e **Cibersegurança**.  
-💻 Online em: [daianehorbachdevciber.vercel.app](https://daianehorbachdevciber.vercel.app)
+> *"Código consciente, defesa sólida."*
 
----
-
-## 🧩 Sobre o Projeto
-
-Este portfólio foi criado com **HTML5**, **CSS3** e um toque de **JavaScript**, priorizando:
-- Design **moderno e responsivo** com tema escuro e tons roxos, inspirado em tecnologia e segurança digital;  
-- Estrutura simples e leve, com **animações sutis** e **transições suaves**;  
-- Apresentação dos principais **projetos desenvolvidos em Java, Python e Web**;  
-- Seção dedicada às **certificações Cisco e Alura**, destacando minha formação técnica.
+[![Deploy](https://img.shields.io/badge/Deploy-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://daianehorbachdevciber.vercel.app/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/daiane-moreira-horbach/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/daianemh)
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 📌 Sobre o projeto
 
-- **HTML5** — estrutura e semântica  
-- **CSS3 (flex + grid)** — layout responsivo e animações  
-- **JavaScript** — interatividade e efeitos sutis  
-- **Vercel** — hospedagem e deploy  
-- **Google Fonts / Inter** — tipografia  
-- **Simple Icons** — ícones SVG oficiais (LinkedIn, GitHub, etc)
+Portfólio pessoal desenvolvido com **HTML5, CSS3 e JavaScript puro**, sem frameworks ou dependências externas além de Font Awesome para ícones.
 
----
+O site foi construído com foco em:
 
-
----
-
-## 🧠 Conteúdo
-
-O site inclui:
-- **Seção Sobre Mim:** breve resumo sobre minha jornada em tecnologia e segurança.  
-- **Projetos:** links para os repositórios no GitHub (Java, Python, HTML/CSS/JS).  
-- **Qualificações:** certificações da Cisco, Alura, Fundação Bradesco, SENAI e outras.  
-- **Contato:** integração direta com WhatsApp, LinkedIn, GitHub, Instagram e Email.  
+- **Responsividade total** — mobile-first com breakpoints para smartphone, tablet, desktop e ultrawide
+- **Acessibilidade (WCAG)** — skip link, `aria-label`, `aria-expanded`, `role`, `prefers-reduced-motion`
+- **Performance** — `preconnect` para fontes, `clamp()` para tipografia fluida, sem JavaScript desnecessário
+- **Semântica HTML5** — uso correto de `<header>`, `<nav>`, `<section>`, `<article>`, `<footer>`
 
 ---
 
-## 💬 Contato
+## 🗂️ Estrutura
 
-📱 **WhatsApp:** [Clique aqui](https://wa.me/5566999196565)  
-💼 **LinkedIn:** [linkedin.com/in/daiane-moreira-horbach](https://www.linkedin.com/in/daiane-moreira-horbach/)  
-💻 **GitHub:** [github.com/daianemh](https://github.com/daianemh)  
-📸 **Instagram:** [@daiane.horbachdev](https://instagram.com/daiane.horbachdev)  
-📧 **Email:** daiane.horbachdev@gmail.com  
-
----
-
-## ✨ Frase que me representa
-> “Tecnologia segura começa com código consciente.” — *Daiane Horbach*
+```
+portfolio/
+├── index.html          # Página principal
+├── logo.png            # Logo / ícone do header
+├── foto daiane (2).png # Foto de perfil (hero)
+└── README.md           # Este arquivo
+```
 
 ---
 
-## 🧾 Licença
-Este projeto é de uso pessoal e educacional.  
-© 2025 Daiane Moreira Horbach — Todos os direitos reservados.
+## 🎨 Stack utilizada
 
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+
+---
+
+## ✅ Funcionalidades
+
+- [x] Layout responsivo — mobile, tablet, desktop e ultrawide
+- [x] Menu hamburger com toggle, fechamento por `Esc` e foco acessível
+- [x] Tipografia fluida com `clamp()` — sem quebras em nenhum tamanho de tela
+- [x] Animação de entrada (`fadeUp`) com respeito a `prefers-reduced-motion`
+- [x] Anel gradiente animado na foto de perfil
+- [x] Fundo com grade CSS sutil via `body::before`
+- [x] Skip link para acessibilidade por teclado
+- [x] `rel="noopener noreferrer"` em todos os links externos
+- [x] Meta tags Open Graph para compartilhamento em redes sociais
+
+---
+
+## 📱 Breakpoints
+
+| Breakpoint | Alvo |
+|---|---|
+| `≤ 480px` | Smartphones pequenos |
+| `≤ 768px` | Tablets e smartphones grandes |
+| `≥ 1280px` | Desktops e notebooks |
+| `≥ 1600px` | Monitores ultrawide |
+
+---
+
+## 🚀 Como executar localmente
+
+Não requer instalação. Basta clonar e abrir no navegador:
+
+```bash
+git clone https://github.com/daianemh/<nome-do-repositorio>.git
+cd <nome-do-repositorio>
+# Abra o index.html no navegador ou use uma extensão como Live Server (VS Code)
+```
+
+> **Dica:** use a extensão **Live Server** no VS Code para recarregamento automático durante o desenvolvimento.
+
+---
+
+## 🌐 Deploy
+
+O site está hospedado na **Vercel** com deploy automático a cada push na branch `main`.
+
+🔗 **[daianehorbachdevciber.vercel.app](https://daianehorbachdevciber.vercel.app/)**
+
+---
+
+## 👩‍💻 Autora
+
+**Daiane Horbach**
+Profissional em formação em Segurança da Informação · Blue Team · Back-end Java
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Daiane%20Horbach-0077B5?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/daiane-moreira-horbach/)
+[![Email](https://img.shields.io/badge/Email-daiane.horbachdev%40gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:daiane.horbachdev@gmail.com)
+
+---
+
+<p align="center">
+  Feito com 💜 · © 2026 Daiane Horbach
+</p>
 
