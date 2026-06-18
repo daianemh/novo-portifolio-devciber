@@ -898,27 +898,7 @@
       <h2 id="contact-title"><span>Contato</span></h2>
 
       <div class="socials" role="list">
-
-        <!--
-          ══════════════════════════════════════════════════════════════
-          SEGURANÇA: email e celular NÃO estão no HTML.
-          São remontados via JS apenas no clique do usuário.
-          Bots de scraping que leem o código-fonte não encontram
-          nenhuma string de contato sensível aqui.
-          ══════════════════════════════════════════════════════════════
-        -->
-
-        <!-- Botão WhatsApp protegido — href injetado via JS no clique -->
-        <button
-          class="social social--protected"
-          id="btn-whatsapp"
-          aria-label="Revelar e abrir WhatsApp"
-          data-type="whatsapp">
-          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-          <span class="contact-label">WhatsApp</span>
-          <span class="contact-value" aria-live="polite"></span>
-        </button>
-
+
         <a class="social" role="listitem"
           href="https://linkedin.com/in/daiane-moreira-horbach"
           target="_blank"
@@ -954,39 +934,12 @@
     </footer>
 
   </div><!-- /.wrap -->
-
-  <!-- ─── JAVASCRIPT: PROTEÇÃO DE DADOS DE CONTATO ────────────────
-       Estratégia de segurança em camadas:
-
-       1. ROT13: cada fragmento é armazenado cifrado com ROT13.
-          Uma string cifrada não é reconhecida por scrapers de regex
-          que procuram padrões como "gmail.com" ou "+55".
-
-       2. Fragmentação: os dados nunca existem como string completa
-          no código. São divididos em partes e remontados em memória
-          apenas no momento do clique.
-
-       3. Montagem lazy (on-demand): a string final só é construída
-          dentro do handler de clique — um evento que exige interação
-          humana real. Bots que apenas fazem parse do HTML/JS estático
-          não executam handlers de evento.
-
-       4. Sem href no HTML: os atributos mailto: e wa.me nunca
-          aparecem no código-fonte da página.
-
-       LIMITAÇÃO CONHECIDA: proteção client-side não é inquebrável.
-       Um adversário que execute o JS e inspecione a memória pode
-       recuperar os dados. Para proteção total, os dados deveriam
-       trafegar via endpoint de backend autenticado.
-  ──────────────────────────────────────────────────────────────── -->
+
   <script>
     (function () {
       'use strict';
 
-      /* ── Cifra ROT13 ─────────────────────────────────────────────
-         ROT13 desloca cada letra 13 posições no alfabeto.
-         Aplicado duas vezes retorna ao original.
-         Uso: para dificultar leitura direta de strings no código.   */
+     
       function rot13(str) {
         return str.replace(/[A-Za-z]/g, function (c) {
           var base = c <= 'Z' ? 65 : 97;
@@ -994,28 +947,16 @@
         });
       }
 
-      /* ── Dados fragmentados e cifrados com ROT13 ─────────────────
-         Para regenerar esses valores, aplique rot13() a cada parte:
-           rot13("qnvnar.ubeonfuqri") === "daiane.horbachdev"
-           rot13("@tznvy.pbz")        === "@gmail.com"
-           rot13("55")                === "55"   (dígitos não mudam)
-           rot13("66999196565")       === "66999196565"
-
-         Os fragmentos são embaralhados fora da ordem natural
-         e remontados pelo índice correto apenas em runtime.        */
+      
       var _e = [
         rot13('qnvnar.ubeonfuqri'), // [0] → "daiane.horbachdev"
         rot13('@tznvy.pbz'),        // [1] → "@gmail.com"
       ];
+
 
-      var _w = [
-        '55',                       // [0] DDI (dígitos, rot13 não altera)
-        '66999196565',              // [1] número local
-      ];
-
-      /* ── Montagem em runtime (apenas no clique) ──────────────── */
+   
       function buildEmail()    { return _e[0] + _e[1]; }
-      function buildWhatsApp() { return 'https://wa.me/' + _w[0] + _w[1]; }
+     
 
       /* ── Handler genérico ────────────────────────────────────── */
       function handleReveal(btn, type) {
